@@ -7,6 +7,7 @@ public class Main {
     private static double lastResult = 0;
 
     public static void main(String[] args) {
+
         System.out.println("Calculator in Java\n");
         Scanner sc = new Scanner(System.in);
         boolean continueCalculator = true;
@@ -28,27 +29,27 @@ public class Main {
 
             switch (op) {
                 case 1:
-                    lastResult = add(num1, num2);
+                    lastResult =  num1 + num2;
                     System.out.printf("Result: %.2f\n", lastResult);
                     break;
                 case 2:
-                    lastResult = subtract(num1, num2);
+                    lastResult =  num1 - num2;
                     System.out.printf("Result: %.2f\n", lastResult);
                     break;
                 case 3:
-                    lastResult = multiply(num1, num2);
+                    lastResult = num1 * num2;
                     System.out.printf("Result: %.2f\n", lastResult);
                     break;
                 case 4:
                     if (num2 != 0) {
-                        lastResult = divide(num1, num2);
+                        lastResult =  num1 / num2;
                         System.out.printf("Result: %.2f\n", lastResult);
                     } else {
                         System.out.println("Error: Division by zero is not allowed.");
                     }
                     break;
                 case 5:
-                    lastResult = modulus(num1, num2);
+                    lastResult =   num1 % num2;
                     System.out.printf("Result: %.2f\n", lastResult);
                     break;
                 case 6:
@@ -74,7 +75,7 @@ public class Main {
                         break;
                     }
                 case 8:
-                    lastResult = average(num1, num2);
+                    lastResult =  (num1 + num2) / 2;
                     System.out.printf("Average: %.2f\n", lastResult);
                     break;
                 case 9:
@@ -96,33 +97,9 @@ public class Main {
     }
 
 
-    public static double add(double a, double b) {
-        return a + b;
-    }
-
-    public static double subtract(double a, double b) {
-        return a - b;
-    }
-
-    public static double multiply(double a, double b) {
-        return a * b;
-    }
-
-    public static double divide(double a, double b) {
-        return a / b;
-    }
-
-    public static double modulus(double a, double b) {
-        return a % b;
-    }
-
-    public static double average(double a, double b) {
-        return (a + b) / 2;
-    }
-
     public static void printAllResults() {
         if (resultsHistory.isEmpty()) {
-            System.out.println("No results in history.");
+            System.out.println("No Record in history.");
         } else {
             for (int i = 0; i < resultsHistory.size(); i++) {
                 System.out.printf("Result %d: %.2f\n", (i + 1), resultsHistory.get(i));
@@ -131,20 +108,28 @@ public class Main {
     }
 
 
-    public static void displayMenu() {
-        System.out.println();
-        System.out.println("Choose an operation:");
-        System.out.println("1 - Addition");
-        System.out.println("2 - Subtraction");
-        System.out.println("3 - Multiplication");
-        System.out.println("4 - Division");
-        System.out.println("5 - Modulus");
-        System.out.println("6 - Minimum");
-        System.out.println("7 - Maximum");
-        System.out.println("8 - Average");
-        System.out.println("9 - Show last result");
-        System.out.println("10 - Show all results");
-        System.out.println("0 - Exit");
-        System.out.print("Enter operation number: ");
+
+        public static void displayMenu() {
+            String[] operations = {
+                    "1 - Addition",
+                    "2 - Subtraction",
+                    "3 - Multiplication",
+                    "4 - Division",
+                    "5 - Modulus",
+                    "6 - Minimum",
+                    "7 - Maximum",
+                    "8 - Average",
+                    "9 - Show last result",
+                    "10 - Show all results",
+                    "0 - Exit"
+            };
+
+            System.out.println();
+            System.out.println("Choose an operation:");
+
+            for (String operation : operations) {
+                System.out.println(operation);
     }
+    }
+
 }
